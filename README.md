@@ -1,8 +1,8 @@
 
-# DealHunt
+# Slash
 Scrapes the most popular e-commerce websites to get the best deals on searched items across these websites. 
-- **Fast**: With DealHunt, you can save over 50% of your time by comparing deals across websites within seconds
-- **Easy**: DealHunt uses very easy commands to filter, sort and search your items
+- **Fast**: With Slash, you can save over 50% of your time by comparing deals across websites within seconds
+- **Easy**: Slash uses very easy commands to filter, sort and search your items
 
 # :rocket: Quick Guide
 

@@ -3,7 +3,7 @@ Copyright (C) 2021 SE Slash - All Rights Reserved
 You may use, distribute and modify this code under the
 terms of the MIT license.
 You should have received a copy of the MIT license with
-this file. If not, please write to: secheaper@gmail.com
+this file. 
 """
 
 """
@@ -14,6 +14,7 @@ the required format.
 from datetime import datetime
 import math
 import requests
+import re
 from ast import literal_eval
 
 CURRENCY_URL = "https://api.exchangerate-api.com/v4/latest/usd"
@@ -46,17 +47,36 @@ def formatResult(
         title = titles[0].get_text().strip()
     if prices:
         price = prices[0].get_text().strip()
-    if "$" not in price:
+        price = re.sub('\s', '', price) # remove all spaces
+        price = re.sub(',', '', price) # remove all , in numbers
+        price = re.search("[0-9\.]+", price).group() # search and match the price value (numbers)
         price = "$" + price
+        if(website == 'walmart' and '.' not in price):
+            price = price[:-2] + "." + price[-2:]
+    #if "$" not in price:
+    #    price = "$" + price
     if links:
         link = links[0]["href"]
     if ratings:
-        rating = float(ratings[0].get_text().strip().split()[0])
+        #print(float(ratings[0].get_text().strip().split()[0]))
+        if(type(ratings)!=str):
+            rating = float(ratings[0].get_text().strip().split()[0])
+        else:
+            rating=float(ratings)
+        
     if trending:
         trending_stmt = trending.get_text().strip()
     if num_ratings:
         if isinstance(num_ratings, int):
             num_rating = num_ratings
+        elif isinstance(num_ratings, str):
+            num_ratings = (
+                    num_ratings
+                    .replace(")", "")
+                    .replace("(", "")
+                    .replace(",", "")
+                )
+            num_rating = num_ratings.strip()
         else:
             num_ratings = (
                 num_ratings[0]
@@ -66,6 +86,7 @@ def formatResult(
                 .replace(",", "")
             )
             num_rating = num_ratings.strip()
+    #print(num_rating)
     # if df_flag==0: title=formatTitle(title)
     # if df_flag==0: link=formatTitle(link)
     if currency:
@@ -77,11 +98,11 @@ def formatResult(
         "link": f"www.{website}.com{link}",
         "website": website,
         "rating": rating,
-        "no of ratings": num_rating,
+        "no_of_ratings": num_rating,
         "trending": trending_stmt,
-        "converted price": converted_cur,
+        "converted_price": converted_cur,
     }
-
+    #print(product," Printed")
     return product
 
 
