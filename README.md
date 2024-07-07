@@ -10,11 +10,11 @@ Scrapes the most popular e-commerce websites to get the best deals on searched i
  - First, pre-install [git](https://git-scm.com/) on  your machine. 
  - Then, clone the repo using the following command:
  ```
- git clone https://github.com/Adinarayana11/DealHunt
+ git clone https://github.com/Dedeepyapnv/Slash
  ```
  * Finally, ```cd``` into the local repository.
 ```
-cd DealHunt
+cd Slash
 ```
 2. Install the ```requirements.txt```. 
 - This project uses Python 3, so make sure that [Python](https://www.python.org/downloads/) and [Pip](https://pip.pypa.io/en/stable/installation/) are preinstalled.
@@ -78,16 +78,5 @@ flask run
 <p> Product Link which directs to the product page.</p>
 <p align="center"><img width="700" src="./assets/link.gif"></p>
 
-# :muscle: What's next for future development?
 
-- Creating ordering and payment functionality for customers to directly order from Website.
-- Adding Password for login page.
-- Provide parameters like in-store availability.
-- Increase the number of filters. 
-
-
-:thought_balloon: Use Case
----
-* ***Students***: Students coming to university are generally on a budget and time constraint and generally spend hours wasting time to search for products on Websites. DealHunt is the perfect tool for these students that slashes all the unnecessary details on a website and helps them get prices for a product across multiple websites.Make the most of this tool in the upcoming Black Friday Sale.
-* ***Data Analysts***: Finding data for any project is one of the most tedious job for a data analyst, and the datasets found might not be the most recent one. Using slash, they can create their own dataset in real time and format it as per their needs so that they can focus on what is actually inportant.
 
